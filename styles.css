@@ -1,0 +1,7 @@
+
+div {
+    margin: 2em;
+    padding: .5em;
+    border: 2px solid black;
+    width: fit-content;
+}

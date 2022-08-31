@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>week3day1</title>
+</head>
+
+<body>
+
+
+
+
+<!-- Add and Subtract 1 -->
+    <div>
+        <div id="total">0</div>
+        <button id="add-one">Add One</button>
+        <button id="subtract-one">Subtract One</button>
+    </div>
+
+
+
+<!-- Multiply and Divide by 2 -->
+    <div>
+        <div id="output">100</div>
+        <button id="timesTwo">Multiply by Two</button>
+        <button id="divideTwo">Divide by Two</button>
+    </div>
+
+
+
+<!-- Input Text Length Counter -->
+<div>
+    <input type="text"> length:
+    <span id="length">0</span>
+
+</div>
+
+
+<!-- Remove Test Text -->
+    <div id="this-thing">
+        <h1 id="test-h1">Test Text</h1>
+        <button id="this-is-a-button">Click me</button>
+    </div>
+
+
+<!-- Remove Text Example 2  ("click me 2") -->
+    <div>
+        <div id="while-div">
+            <h2> text</h2>
+            <h2> text</h2>
+            <h2> text</h2>
+            <h2> text</h2>
+            <h2> text</h2>
+            <h2> text</h2>
+            <h2> text</h2>
+        </div>
+
+        <button id="button-2">Click me 2</button>
+    </div>
+
+
+
+
+
+<script>
+
+
+
+
+//(add/substract HTML for quick REFERENCE)
+//<div id="total">0</div>
+//<button id="add-one">Add One</button>
+//<button id="subtract-one">Subtract One</button>
+
+//get the element with the id of 'total'
+//(in this case it is the div with the id of 'total', as seen in the HTML reference above)
+    const total = document.getElementById("total")
+//get the element with the id of 'add-one'
+//in this case it is the button with the id of 'add-one'
+    const addBtn = document.getElementById("add-one")
+//get the element with the id of 'subtract-one'
+//in this case it is the button with the id of 'subtract-one'
+    const subtractBtn = document.getElementById('subtract-one')
+
+//add event listener of 'click' to 'addBtn', 
+//addBtn is the variable assigned to the button element with the id of 'add-one', we did this on line 5
+//and when this button is clicked, the function 'addition' will execute
+addBtn.addEventListener("click", addition)
+
+//add event listener 'click' to 'subtractBtn' which executes the 'substraction' function
+subtractBtn.addEventListener("click", subtraction)
+
+//declaring addition function
+function addition() {
+    let sum = Number(total.textContent) + 1
+    total.textContent = sum
+}
+
+//declaring subtraction function
+function subtraction() {
+    let diff = Number(total.textContent) - 1
+    total.textContent = diff
+}
+
+
+//Add and Subtract 1
+//Without the comments
+        // const total = document.getElementById("total")
+        // const addBtn = document.getElementById("add-one")
+        // const subtractBtn = document.getElementById('subtract-one')
+
+        // addBtn.addEventListener("click", addition)
+        // subtractBtn.addEventListener("click", subtraction)
+
+        // function addition() {
+        //     let sum = Number(total.textContent) + 1
+        //     total.textContent = sum
+        // }
+
+        // function subtraction() {
+        //     let diff = Number(total.textContent) - 1
+        //     total.textContent = diff
+        // }
+
+
+
+//Multiply and Divide by 2
+        const totalProduct = document.getElementById("output")
+        const timesBtn = document.getElementById("timesTwo")
+        const divideBtn = document.getElementById('divideTwo')
+
+        timesBtn.addEventListener("click", multiplication)
+        divideBtn.addEventListener("click", division)
+
+        function multiplication() {
+            let product = Number(totalProduct.textContent) * 2
+            totalProduct.textContent = product
+        }
+
+        function division() {
+            let quotient = Number(totalProduct.textContent) / 2
+            totalProduct.textContent = quotient
+        }
+
+
+//Input Text Length Counter
+let text = document.querySelector("input");
+        let output = document.querySelector("#length");
+        text.addEventListener("input", () => {
+            output.textContent = text.value.length;
+        });
+
+
+// Remove Test Text 
+        const myH1 = document.getElementById("test-h1")
+        const thisButton = document.getElementById("this-is-a-button")
+        const parent = document.getElementById("this-thing")
+
+        thisButton.addEventListener("click", () => {
+            console.log('Clicked')
+            parent.removeChild(myH1)
+        })
+
+// Remove Text Example 2  ("click me 2")
+        const parent2 = document.getElementById("while-div")
+        const button2 = document.getElementById("button-2")
+
+
+        const nodes = parent2.childNodes
+
+        button2.addEventListener("click", () => {
+            console.log("Clicked")
+
+            while (parent2.firstChild) {
+                parent2.removeChild(parent2.firstChild)
+            }
+        })
+
+
+
+</script>
+
+</body>
+
+</html>
